@@ -1,0 +1,136 @@
+{% extends 'contracts/base.html' %}
+
+{% block content %}
+<h2>Details: Fixed Contracts</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>🙋‍♀️ Recipient</th>
+        <th>🆎 Category</th>
+        <th>🗓️ Payment Day</th>
+        <th>🪙 Payment Monthly</th>
+        <th>🔄 Payment Period</th>
+        <th>💰 Payment Sum</th>
+        <th>👤 Customer ID</th>
+        <th>🛒 Tariff</th>
+        <th>🚀 Start Date</th>
+        <th>🏁 End Date</th>
+        <th>📅 Min Months</th>
+        <th>🔏 Fixed Price Term</th>
+        <th>🔐 Cancellation Period</th>
+        <th>📝 Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for detail in contract_details %}
+      <tr>
+        <td>{{ detail.contract.recipient }}</td>
+        <td>{{ detail.contract.category }}</td>
+        <td>{{ detail.contract.payment_day }}</td>
+        <td>{{ detail.contract.payment_monthly }}</td>
+        <td>{{ detail.contract.payment_period }}</td>
+        <td>{{ detail.contract.payment_sum }}</td>
+        <td>{{ detail.customer_id }}</td>
+        <td>{{ detail.tariff }}</td>
+        <td>{{ detail.start_date }}</td>
+        <td>{{ detail.end_date }}</td>
+        <td>{{ detail.min_months }}</td>
+        <td>{{ detail.fixed_price_term }}</td>
+        <td>{{ detail.cancellation_period }}</td>
+        <td>{{ detail.notes }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+<h2>Details: Transfer Orders</h2>
+<table>
+  <thead>
+    <tr>
+      <th>🙋‍♀️ Recipient</th>
+      <th>🆎 Category</th>
+      <th>🗓️ Payment Day</th>
+      <th>🪙 Payment Monthly</th>
+
+      <th>🚀 Start Date</th>
+      <th>🏁 End Date</th>
+      <th>📝 Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for detail in transfer_order_details %}
+    <tr>
+      <td>{{ detail.transfer_order.recipient }}</td>
+      <td>{{ detail.transfer_order.category }}</td>
+      <td>{{ detail.transfer_order.payment_day }}</td>
+      <td>{{ detail.transfer_order.payment_monthly }}</td>
+
+      <td>{{ detail.start_date }}</td>
+      <td>{{ detail.end_date }}</td>
+      <td>{{ detail.notes }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<h2>Details: Pockets & Goals</h2>
+<table>
+  <thead>
+    <tr>
+      <th>🙋‍♀️ Recipient</th>
+      <th>🆎 Category</th>
+      <th>🗓️ Payment Day</th>
+      <th>🪙 Payment Monthly</th>
+
+      <th>🚀 Start Date</th>
+      <th>🏁 End Date</th>
+      <th>📝 Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for detail in pocket_details %}
+    <tr>
+      <td>{{ detail.pocket.recipient }}</td>
+      <td>{{ detail.pocket.category }}</td>
+      <td>{{ detail.pocket.payment_day }}</td>
+      <td>{{ detail.pocket.payment_monthly }}</td>
+
+      <td>{{ detail.start_date }}</td>
+      <td>{{ detail.end_date }}</td>
+      <td>{{ detail.notes }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<h2>Details: Monthly Budgets</h2>
+<table>
+  <thead>
+    <tr>
+      <th>🙋‍♀️ Recipient</th>
+      <th>🆎 Category</th>
+      <th>🗓️ Payment Day</th>
+      <th>🪙 Payment Monthly</th>
+
+      <th>🚀 Start Date</th>
+      <th>🏁 End Date</th>
+      <th>📝 Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for detail in budget_details %}
+    <tr>
+      <td>{{ detail.budget.recipient }}</td>
+      <td>{{ detail.budget.category }}</td>
+      <td>{{ detail.budget.payment_day }}</td>
+      <td>{{ detail.budget.payment_monthly }}</td>
+
+      <td>{{ detail.start_date }}</td>
+      <td>{{ detail.end_date }}</td>
+      <td>{{ detail.notes }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

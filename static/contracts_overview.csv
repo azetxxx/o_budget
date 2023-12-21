@@ -1,0 +1,10 @@
+recipient,category,payment_day,payment_monthly,payment_period,payment_sum
+Berger Real Estate,Rent,4,680,1,680
+Waterfall Energy,Electricity,5,55,1,55
+PrimeEnergy,Gas,5,45,1,45
+CableNet Services,Internet,1,35,1,35
+FitnessHub,Gym,4,17,1,17
+MediaBroadcast Corp,Radio/TV,16,20,3,60
+ClearMobile,Mobile Plan,13,12,1,12
+Railway Services Co.,Commuter Pass,15,50,12,600
+BankOne,Student Loan,2,175,1,175

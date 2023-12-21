@@ -1,0 +1,54 @@
+{% extends 'contracts/base.html' %}
+
+{% block content %}
+
+<form action="{% url 'contracts:income_add' %}" method="post">
+  {% csrf_token %}
+
+  <!-- Display non-field errors -->
+  {% if form.non_field_errors %}
+  <div class="alert alert-danger">
+    {% for error in form.non_field_errors %}
+    {{ error }}
+    {% endfor %}
+  </div>
+  {% endif %}
+  <label>
+    🎅 Payer:
+  </label>
+  {{ form.payer }}
+  {% for error in form.payer.errors %}
+  <div class="error">{{ error }}</div>
+  {% endfor %}
+  <br>
+
+  <label>
+    🆎 Category:
+  </label>
+  {{ form.income_category }}
+  {% for error in form.income_category.errors %}
+  <div class="error">{{ error }}</div>
+  {% endfor %}
+  <br>
+
+  <label>
+    🗓️ Payment Day:
+  </label>
+  {{ form.payment_day }}
+  {% for error in form.payment_day.errors %}
+  <div class="error">{{ error }}</div>
+  {% endfor %}
+  <br>
+
+  <label>
+    🪙 Payment Monthly:
+  </label>
+  {{ form.payment_monthly }}
+  {% for error in form.payment_monthly.errors %}
+  <div class="error">{{ error }}</div>
+  {% endfor %}
+  <br>
+  <button type="submit">Add Income</button>
+</form>
+
+{% endblock %}

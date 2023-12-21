@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>{{ title }}</title>
+  {% block custom_styles %} {% endblock %}
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <img src="/templates/contracts/icon.png" alt="Company Logo">
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="{% url 'contracts:income_add' %}">➕ Add Income</a></li>
+        <li><a href="{% url 'contracts:income_overview' %}">👁️ Income Overview</a></li>
+        <li><a href="{% url 'contracts:income_details' %}">🔎 Income Details</a></li>
+        <br>
+        <li><a href="{% url 'contracts:spends_add' %}">➕ Add Fixed Contract</a></li>
+        <li><a href="{% url 'contracts:transfer_order_add' %}">➕ Add Transfer Order</a></li>
+        <li><a href="{% url 'contracts:pocket_add' %}">➕ Add Pocket/Goal</a></li>
+        <li><a href="{% url 'contracts:budget_add' %}">➕ Add Monthly Budget</a></li>
+
+        <li><a href="{% url 'contracts:spends_overview' %}">👁️ Spends Overview</a></li>
+        <li><a href="{% url 'contracts:spends_details' %}">🔎 Spends Details</a></li>
+        <br>
+        <li><a href="{% url 'contracts:timeline' %}">📅 Timeline</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  {% block content %} {% endblock %}
+
+</body>
+
+</html>

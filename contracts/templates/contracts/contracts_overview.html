@@ -1,0 +1,96 @@
+{% extends 'contracts/base.html' %}
+
+{% block content %}
+
+<h2>Spends: Fixed Contracts</h2>
+<table>
+  <thead>
+    <tr>
+      <th>🙋‍♀️ Recipient</th>
+      <th>🆎 Category</th>
+      <th>🗓️ Payment Day</th>
+      <th>🪙 Payment Monthly</th>
+      <th>🔄 Payment Period</th>
+      <th>💰 Payment Sum</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for contract in contracts %}
+    <tr>
+      <td>{{ contract.recipient }}</td>
+      <td>{{ contract.category }}</td>
+      <td>{{ contract.payment_day }}<span style="color: lightgray">.mm.yyyy</span></td>
+      <td>{{ contract.payment_monthly }}</td>
+      <td>{{ contract.payment_period }}</td>
+      <td>{{ contract.payment_sum }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<h2>Spends: Transfer Orders</h2>
+<table>
+  <thead>
+    <tr>
+      <th>🙋‍♀️ Recipient</th>
+      <th>🆎 Category</th>
+      <th>🗓️ Payment Day</th>
+      <th>🪙 Payment Monthly</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for transfer_order in transfer_orders %}
+    <tr>
+      <td>{{ transfer_order.recipient }}</td>
+      <td>{{ transfer_order.category }}</td>
+      <td>{{ transfer_order.payment_day }}<span style="color: lightgray">.mm.yyyy</span></td>
+      <td>{{ transfer_order.payment_monthly }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<h2>Spends: Pockets & Goals</h2>
+<table>
+  <thead>
+    <tr>
+      <th>🙋‍♀️ Recipient</th>
+      <th>🆎 Category</th>
+      <th>🗓️ Payment Day</th>
+      <th>🪙 Payment Monthly</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for pocket in pockets %}
+    <tr>
+      <td>{{ pocket.recipient }}</td>
+      <td>{{ pocket.category }}</td>
+      <td>{{ pocket.payment_day }}<span style="color: lightgray">.mm.yyyy</span></td>
+      <td>{{ pocket.payment_monthly }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<h2>Spends: Monthly Budgets</h2>
+<table>
+  <thead>
+    <tr>
+      <th>🙋‍♀️ Recipient</th>
+      <th>🆎 Category</th>
+      <th>🗓️ Payment Day</th>
+      <th>🪙 Payment Monthly</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for budget in budgets %}
+    <tr>
+      <td>{{ budget.recipient }}</td>
+      <td>{{ budget.category }}</td>
+      <td>{{ budget.payment_day }}<span style="color: lightgray">.mm.yyyy</span></td>
+      <td>{{ budget.payment_monthly }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

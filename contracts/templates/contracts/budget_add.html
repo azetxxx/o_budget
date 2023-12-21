@@ -1,0 +1,56 @@
+{% extends 'contracts/base.html' %}
+
+{% block content %}
+
+
+<form action="{% url 'contracts:budget_add' %}" method="post">
+  {% csrf_token %}
+
+  <!-- Display non-field errors -->
+  {% if form.non_field_errors %}
+  <div class="alert alert-danger">
+    {% for error in form.non_field_errors %}
+    {{ error }}
+    {% endfor %}
+  </div>
+  {% endif %}
+  <label>
+    🙋‍♀️ Recipient:
+  </label>
+  {{ form.recipient }}
+  {% for error in form.recipient.errors %}
+  <div class="error">{{ error }}</div>
+  {% endfor %}
+  <br>
+
+  <label>
+    🆎 Category:
+  </label>
+  {{ form.category }}
+  {% for error in form.category.errors %}
+  <div class="error">{{ error }}</div>
+  {% endfor %}
+  <br>
+
+  <label>
+    🗓️ Payment Day:
+  </label>
+  {{ form.payment_day }}
+  {% for error in form.payment_day.errors %}
+  <div class="error">{{ error }}</div>
+  {% endfor %}
+  <br>
+
+  <label>
+    🪙 Payment Monthly:
+  </label>
+  {{ form.payment_monthly }}
+  {% for error in form.payment_monthly.errors %}
+  <div class="error">{{ error }}</div>
+  {% endfor %}
+  <br>
+
+  <button type="submit">Add Budget</button>
+</form>
+
+{% endblock %}

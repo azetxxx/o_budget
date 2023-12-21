@@ -1,0 +1,35 @@
+{% extends 'contracts/base.html' %}
+
+{% block content %}
+<h2>Income: Details</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>🎅 Payer</th>
+        <th>🆎 Category</th>
+        <th>🗓️ Payment Day</th>
+        <th>🪙 Payment Monthly</th>
+        <th>🚀 Start Date</th>
+        <th>🏁 End Date</th>
+        <th>📅 Min Months</th>
+        <th>🔐 Cancellation Period</th>
+        <th>📝 Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for details in object_list %}
+      <tr>
+        <td>{{ details.income.payer }}</td>
+        <td>{{ details.income.income_category }}</td>
+        <td>{{ details.income.payment_day }}</td>
+        <td>{{ details.income.payment_monthly }}</td>
+        <td>{{ details.start_date }}</td>
+        <td>{{ details.end_date }}</td>
+        <td>{{ details.min_months }}</td>
+        <td>{{ details.cancellation_period }}</td>
+        <td>{{ details.notes }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

@@ -1,0 +1,10 @@
+customer_id,tariff,start_date,end_date,min_months,fixed_price_term,cancellation_period,notes,contract_id
+311006902,not relevant,2019-03-01,2033-12-01,,,12,empty,1
+8366311,Nature 24 Plus,2021-04-01,2024-04-01,24,24,6,empty,2
+21255120,PowerSimple 12,2021-08-01,2024-07-01,12,12,6,empty,3
+dsl8200134,Surf&Phone150,2022-07-01,2024-07-01,24,24,4,empty,4
+21111093,Flex24,2022-12-01,2024-12-01,24,24,12,empty,5
+3819033,not relevant,2019-03-01,2033-12-01,,,,empty,6
+FM10578982,Allnet100,2023-10-01,2023-11-01,1,24,1,empty,7
+9123512,GermanTicket,2023-06-01,2033-06-01,1,,1,empty,8
+23100031,not relevant,2018-08-01,2024-07-01,,,,empty,9

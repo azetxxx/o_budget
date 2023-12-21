@@ -1,0 +1,170 @@
+{% extends 'contracts/base.html' %}
+
+{% block custom_styles %}
+<style>
+  .container {
+    display: flex;
+    width: 100%;
+  }
+
+  .left-table,
+  .right-table {
+    margin: 10px;
+    border-collapse: collapse;
+  }
+
+  .left-table th,
+  .left-table td,
+  .right-table th,
+  .right-table td {
+    border: 1px solid black;
+    padding: 5px;
+    text-align: left;
+  }
+
+  .right-table-container {
+    overflow-x: auto;
+    width: 100%;
+  }
+
+  .right-table {
+    min-width: 600px;
+    /* Adjust as needed for 20 columns */
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Contracts Timeline -->
+<div class="container">
+  <!-- Left Table -->
+  <table class="left-table">
+    <tr>
+      <th>🙋‍♀️ Recipient</th>
+      <th>🆎 Category</th>
+      <th>🗓️ Payment Day</th>
+      <th>🪙 Payment Monthly</th>
+    </tr>
+    {% for contract in contracts %}
+    <tr>
+      <td>{{ contract.recipient }}</td>
+      <td>{{ contract.category }}</td>
+      <td>{{ contract.payment_day }}<span style="color: lightgray">.mm.yyyy</span></td>
+      <td>{{ contract.payment_monthly }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <!-- Right Table -->
+  <div class="right-table-container">
+    <table class="right-table">
+      <tr>
+        {% for month in months %}
+        <th>{{ month }}</th>
+        {% endfor %}
+      </tr>
+      {% for contract, prices in all_contracts_monthly_spends.items %}
+      <tr>
+        {% for price in prices %}
+        <td>{{ price }}</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+      <tr>
+        {% for sum in contracts_monthly_sums %}
+        <td style="background-color: aquamarine;">{{ sum }}</td>
+        {% endfor %}
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- Transfer Orders Timeline -->
+<div class="container">
+  <!-- Left Table -->
+  <table class="left-table">
+    <tr>
+      <th>🙋‍♀️ Recipient</th>
+      <th>🆎 Category</th>
+      <th>🗓️ Payment Day</th>
+      <th>🪙 Payment Monthly</th>
+    </tr>
+    {% for transfer_order in transfer_orders %}
+    <tr>
+      <td>{{ transfer_order.recipient }}</td>
+      <td>{{ transfer_order.category }}</td>
+      <td>{{ transfer_order.payment_day }}<span style="color: lightgray">.mm.yyyy</span></td>
+      <td>{{ transfer_order.payment_monthly }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <!-- Right Table -->
+  <div class="right-table-container">
+    <table class="right-table">
+      <tr>
+        {% for month in months %}
+        <th>{{ month }}</th>
+        {% endfor %}
+      </tr>
+      {% for transfer_order, prices in all_transfer_orders_monthly_spends.items %}
+      <tr>
+        {% for price in prices %}
+        <td>{{ price }}</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+      <tr>
+        {% for sum in transfer_orders_monthly_sums %}
+        <td style="background-color: aquamarine;">{{ sum }}</td>
+        {% endfor %}
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- Pockets Timeline -->
+<div class="container">
+  <!-- Left Table -->
+  <table class="left-table">
+    <tr>
+      <th>🙋‍♀️ Recipient</th>
+      <th>🆎 Category</th>
+      <th>🗓️ Payment Day</th>
+      <th>🪙 Payment Monthly</th>
+    </tr>
+    {% for pocket in pockets %}
+    <tr>
+      <td>{{ pocket.recipient }}</td>
+      <td>{{ pocket.category }}</td>
+      <td>{{ pocket.payment_day }}<span style="color: lightgray">.mm.yyyy</span></td>
+      <td>{{ pocket.payment_monthly }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <!-- Right Table -->
+  <div class="right-table-container">
+    <table class="right-table">
+      <tr>
+        {% for month in months %}
+        <th>{{ month }}</th>
+        {% endfor %}
+      </tr>
+      {% for transfer_order, prices in all_pockets_monthly_spends.items %}
+      <tr>
+        {% for price in prices %}
+        <td>{{ price }}</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+      <tr>
+        {% for sum in pockets_monthly_sums %}
+        <td style="background-color: aquamarine;">{{ sum }}</td>
+        {% endfor %}
+      </tr>
+    </table>
+  </div>
+</div>
+
+{% endblock %}
